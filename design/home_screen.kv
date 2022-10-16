@@ -25,20 +25,27 @@
             Image:
                 source: "icons/003-sunset.png"
             Image:
-                source: "icons/avatars/001-runner.png"
+                id: avatar_image
             Image:
                 source: "icons/007-crescent-moon.png"
         Label:
             # Streak label
             id: streak_label
-            text: "12 Day Streak"
+            text: "XXX Day Streak"
             pos_hint: {"top": .7, "left": 1}
             size_hint: 1, .1
-        GridLayout:
-            # Banner grid
-            cols: 1
+        ScrollView:
             pos_hint: {"top": .6, "left": 1}
             size_hint: 1, .4
+            GridLayout:
+                # Banner grid
+                id: banner_grid
+                cols: 1
+                spacing: 10, 10
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: "100dp"
+                row_force_default: True
         GridLayout:
             # Add 3 new menu buttons here
             rows: 1
