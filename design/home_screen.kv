@@ -8,35 +8,15 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-        GridLayout:
-            # Put two weather icons
-            rows: 1
-            pos_hint: {"top": 1, "left": 1} # needed for FloatLayout
-            size_hint: 1, .1
-            Image:
-                source: "icons/002-sunrise.png"
-            Image:
-                source: "icons/001-sun.png"
-        GridLayout:
-            # Put two weather icons and avatar icon
-            rows: 1
-            pos_hint: {"top": .9, "left": 1} # how much to shift within outer container
-            size_hint: 1, .2
-            Image:
-                source: "icons/003-sunset.png"
-            Image:
-                id: avatar_image
-            Image:
-                source: "icons/007-crescent-moon.png"
         Label:
             # Streak label
             id: streak_label
             text: "XXX Day Streak"
-            pos_hint: {"top": .7, "left": 1}
+            pos_hint: {"top": 1, "left": 1}
             size_hint: 1, .1
         ScrollView:
-            pos_hint: {"top": .6, "left": 1}
-            size_hint: 1, .4
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .75
             GridLayout:
                 # Banner grid
                 id: banner_grid
@@ -49,8 +29,8 @@
         GridLayout:
             # Add 3 new menu buttons here
             rows: 1
-            pos_hint: {"top": .2, "left": 1}
-            size_hint: 1, .2
+            pos_hint: {"top": .15, "left": 1}
+            size_hint: 1, .15
             ImageButton:
                 source: "icons/007-add-friend.png"
                 on_release:

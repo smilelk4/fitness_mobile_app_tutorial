@@ -38,7 +38,7 @@ class MainApp(App):
     def on_start(self):
         user = db.collection("friendly-fitness").document("friendly-fitness").get().to_dict()[self.my_friend_id]
 
-        avatar_image = self.root.ids["home_screen"].ids["avatar_image"]
+        avatar_image = self.root.ids["avatar_image"]
         avatar_image.source = "icons/" + user["avatar"]
 
         streak_label = self.root.ids["home_screen"].ids["streak_label"]

@@ -3,11 +3,53 @@
 
 GridLayout:
     cols: 1
-    ScreenManager:
-        id: screen_manager
-        HomeScreen:
-            id: home_screen
-            name: "home_screen"
-        SettingsScreen:
-            id: settings_screen
-            name: "settings_screen"
+    FloatLayout:
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put two weather icons
+            rows: 1
+            pos_hint: {"top": 1, "left": 1} # needed for FloatLayout
+            size_hint: 1, .05
+            Image:
+                source: "icons/002-sunrise.png"
+            Image:
+                source: "icons/001-sun.png"
+        FloatLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put two weather icons and avatar icon
+            rows: 1
+            pos_hint: {"top": .95, "left": 1} # how much to shift within outer container
+            size_hint: 1, .15
+            Image:
+                source: "icons/003-sunset.png"
+                size_hint: .25, .5
+                pos_hint: {"top": 1, "right": .25}
+            Image:
+                id: avatar_image
+                size_hint: .5, 1
+                pos_hint: {"top": 1, "right": .75}
+            Image:
+                source: "icons/007-crescent-moon.png"
+                size_hint: 0.25, 0.5
+                pos_hint: {"top": 1, "right": 1}
+        ScreenManager:
+            id: screen_manager
+            # .799 instead of .8 to leave empty space to appear like border underneath
+            size_hint: 1, .799
+            pos_hint: {"top": .799, "left": 1}
+            HomeScreen:
+                id: home_screen
+                name: "home_screen"
+            SettingsScreen:
+                id: settings_screen
+                name: "settings_screen"
